@@ -32,7 +32,7 @@ while True:
            
 
         else:
-           saldo = valor_deposito + saldo
+           saldo += valor_deposito
            extrato += f"Deposito: R$ {valor_deposito:.2f}\n"
            print("\n================ DEPOSITO REALIZADO ======================")
            print(f"Foi realizado o deposito no valor de: R${valor_deposito:.2f} seu saldo atual é: R${saldo:.2f}")
@@ -49,36 +49,38 @@ while True:
             print("\n================ INSERIR VALOR ======================")
             valor_saque = float(input("Digite o Valor que deseja Sacar: "))
             print("============================================================")
-
+            
             if numero_saques < LIMITE_SAQUES:
 
-                   if valor_saque > saldo:
-                    print("\n================ SALDO INSUFICIENTE ======================")
-                    print("Não possui saldo suficiente na conta")
-                    print("=================================================")
-                    
-
-                   elif valor_saque > limite:
+                  if valor_saque > limite:
                      print("\n================ LIMITE ======================")
                      print("O valor é maior que o limite por saque")
                      print("=================================================")
-                     
 
-                   else:
+                  elif valor_saque > saldo:
+                     print("\n================ SALDO INSUFICIENTE ======================")
+                     print("Não possui saldo suficiente na conta")
+                     print("=================================================")
+
+                  elif valor_saque < 0:
+                     print("\n================ VALOR INVALIDO ======================")
+                     print("Não é possível sacar valores negativos, por favor digite um valor positivo")
+                     print("============================================================")
+
+                  else:
                       saldo = saldo - valor_saque
                       extrato += f"Saque: R$ {valor_saque:.2f}\n"
                       print("\n================ SAQUE REALIZADO ======================")
                       print(f"Foi realizado o saque no valor de: R${valor_saque:.2f} seu saldo atual é: R${saldo:.2f}")
                       print("=================================================")
                       numero_saques += 1
-    
 
             else:
-                print("\n================ LIMITE ======================")
-                print("Limite máximo de saques já realizados")
-                print("=================================================")
-        
-
+             print("\n================ LIMITE ======================")
+             print("Limite máximo de saques já realizados")
+             print("=================================================")
+      
+            
 
 
      elif opcao == "e":
