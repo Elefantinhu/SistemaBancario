@@ -2,7 +2,7 @@
 
 ---
 
-Este é um sistema simples desenvolvido em Python para simular operações bancárias básicas, sendo elas depósito, saque e extrato, foi desenvolvido em um desafio de projeto da plataforma DIO.
+Este é um sistema simples desenvolvido em Python para simular operações bancárias básicas, foi desenvolvido em um desafio de projeto da plataforma DIO e estou buscando aprimora-lo com novas funcionalidades além das solicitadas no projeto para lapidar meu conhecimento.
 
 ### Funcionalidades:
 
