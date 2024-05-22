@@ -1,8 +1,8 @@
-# Sistema Bancário em Python
+# Sistema Bancário em Python 3.0
 
 ---
 
-Este é um sistema simples desenvolvido em Python para simular operações bancárias básicas, sendo elas depósito, saque e extrato, foi desenvolvido em um desafio de projeto da plataforma DIO.
+Este é um sistema simples desenvolvido em Python para simular operações bancárias básicas, foi desenvolvido em um desafio de projeto da plataforma DIO e estou buscando aprimora-lo com novas funcionalidades além das solicitadas no projeto para lapidar meu conhecimento.
 
 ### Funcionalidades:
 
@@ -20,7 +20,7 @@ Este é um sistema simples desenvolvido em Python para simular operações banc�
    - Os clientes podem visualizar o extrato de suas contas bancárias.
    - O extrato exibe o histórico de transações, incluindo saques e depósitos.
 
-Na Última Versão que Disponibilizei foi Adicionado as Funções de Adicionar Clientes e Contas.
+Na Versão 2.0 foi Adicionado as Funções de Adicionar Clientes e Contas.
 
 4. **Clientes:**
    - Os clientes podem preencher os seus Dados para criar uma cadastro no banco.
@@ -30,6 +30,8 @@ Na Última Versão que Disponibilizei foi Adicionado as Funções de Adicionar C
    - Os clientes cadastrados podem abrir contas ilimitadas no Banco.
    - O sistema valida se o CPF está cadastrado antes de adicionar a conta.
    - O sistema faz a organizaçao numerica das contas.
+  
+Na Versão 3.0 foi Adicionado as Funções de Remover Contas e Transição entre os Menus para facilitar a Usabilidade.
 
   
      
