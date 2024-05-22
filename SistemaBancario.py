@@ -15,7 +15,7 @@ def menuContas():
    [c] Criar Cliente
    [f] Criar Conta
    [l] Listar Contas
-   [x] Listar Clientes
+   [d] Deletar Contas
    [i] Voltar pro Menu Inicial
    [q] Sair
    ============================================================
