@@ -26,7 +26,7 @@ Na Última Versão que Disponibilizei foi Adicionado as Funções de Adicionar C
    - Os clientes podem preencher os seus Dados para criar uma cadastro no banco.
    - O sistema valida e permite apenas um cadastro por CPF.
   
-4. **Contas:**
+5. **Contas:**
    - Os clientes cadastrados podem abrir contas ilimitadas no Banco.
    - O sistema valida se o CPF está cadastrado antes de adicionar a conta.
    - O sistema faz a organizaçao numerica das contas.
