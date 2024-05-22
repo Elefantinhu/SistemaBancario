@@ -1,16 +1,52 @@
-def menu():
-   menu = """
+def menuInicial():
+   menuInicial = """
    \n================ MENU ===================================
-   [d] Depositar
-   [s] Sacar
-   [e] Extrato
-   [c] Criar Cliente
-   [f] Criar Conta
-   [l] Listar Clientes
+   [1] Contas
+   [2] Saldos
    [q] Sair
    ============================================================
    => """
-   return input(menu)
+   
+   return input(menuInicial)
+
+def menuContas():
+   menuContas = """
+   \n========================================================
+   [c] Criar Cliente
+   [f] Criar Conta
+   [l] Listar Contas
+   [x] Listar Clientes
+   [i] Voltar pro Menu Inicial
+   [q] Sair
+   ============================================================
+   => """
+   return input(menuContas)
+
+def menuSaldos():
+   menuSaldos = """
+   \n=======================================================
+   [d] Depositar
+   [s] Sacar
+   [e] Extrato
+   [i] Voltar pro Menu Inicial
+   [q] Sair
+   ============================================================
+   => """
+   return input(menuSaldos)
+
+        
+def sair():
+     print("\n================ DESCONECTANDO ================")
+     print("Saindo do Sistema, muito obrigado por utilizar nosso banco.")
+     print("=================================================")
+     
+     
+
+
+
+
+   
+       
 
 def depositar(saldo, valor_deposito, extrato, /):
 
@@ -94,7 +130,12 @@ def validar_cpf(cpf, clientes):
      clientes_validados = [cliente for cliente in clientes if cliente["cpf"] == cpf]
      return clientes_validados[0] if clientes_validados else None
 
+def validar_conta(cpf, contas):
+     contas_validadas = [conta for conta in contas if conta["numero_conta"] == conta]
+     return contas_validadas[0] if contas_validadas else None
+
 def listar_contas(contas):
+     
      for conta in contas:
          linha = f"""\
                Agência: {conta['agencia']}
@@ -119,6 +160,18 @@ def criar_conta(agencia, numero_conta, clientes):
      print("Cliente Não Encontrando, Realizar o Cadastro do Cliente.")
      print("============================================================")
 
+def deletar_conta(numero_conta, contas):
+     numero_conta = input("Digite a Conta que deseja Deletar: ")
+     conta = validar_conta(numero_conta, contas)
+     if conta:
+       print("============================================================")
+       print("Conta Deletada com Sucesso")
+       return {"numero_conta": numero_conta, "conta": conta}
+     print("\n================ CONTA NAO ENCONTRADA ======================")
+     print("Conta Não Encontrando, Por Favor tente novamente com uma Conta Valida.")
+     print("============================================================")
+
+
 def main():
   saldo = 0
   limite = 500
@@ -128,10 +181,30 @@ def main():
   AGENCIA = "0001"
   clientes = []
   contas = []
+  nmr_conta = 0
+  
 
   while True:
      
-     opcao = menu()
+     opcaoInicial = menuInicial()
+
+     if opcaoInicial == "1":
+          opcao = menuContas()
+     elif opcaoInicial == "2":
+          opcao = menuSaldos()
+     elif opcaoInicial == "q":
+          opcao = "q"
+     else:
+          print("Digite uma Opção Válida")
+          opcaoInicial = menuInicial()
+          if opcaoInicial == "1":
+           opcao = menuContas()
+          elif opcaoInicial == "2":
+           opcao = menuSaldos()
+          elif opcaoInicial == "q":
+           opcao = "q"
+          
+     
 
      if opcao == "d":
           
@@ -167,18 +240,26 @@ def main():
              listar_contas(contas)
 
      elif opcao == "f":
-            numero_conta = len(contas) + 1
-            conta = criar_conta(AGENCIA, numero_conta, clientes)
+             
+            nmr_conta = nmr_conta + 1
+            conta = criar_conta(AGENCIA, nmr_conta, clientes)
             
             if conta:
                  contas.append(conta)
 
+     elif opcao == "d":
+             deletar_conta(nmr_conta, contas)
+             
+             if conta:
+                  contas.remove(conta)
+            
 
      elif opcao == "q":
-        print("\n================ DESCONECTANDO ================")
-        print("Saindo do Sistema, muito obrigado por utilizar nosso banco.")
-        print("=================================================")
+        sair()
         break
+
+     elif opcao == "i":
+          continue
 
      else:
         print("Operação Inválida, por favor selecione novamente a operação desejada.")
